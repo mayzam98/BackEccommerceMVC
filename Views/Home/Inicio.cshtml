@@ -1,0 +1,99 @@
+﻿@model IEnumerable<BackEccommerceMVC.Models.Product>
+
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<h2>Inicio</h2>
+
+
+<form method="post">
+    <div>
+        <input type="text" class="form-control" id="nombreBuscar" placeholder="Buscar por nombre" name="nombreBuscar" required>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary" asp-page-handler="Inicio"> Buscar producto por nombre</button>
+    </div>
+</form>
+
+
+<p>
+
+</p>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+
+
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.productId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.brandId)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.categoryId)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.releaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.link)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.productId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.productName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.brandId)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.categoryId)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.releaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.link)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
